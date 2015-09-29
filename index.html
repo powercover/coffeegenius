@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/index1.js"></script>
+        <script type="text/javascript">
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: 'http://sl.coffeegenius/index.php?r=welcome/phonegapindex/',
+                dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+                    alert(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            })
+        </script>
+
+        <title>Coffee Genius</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="head_wrapper">
+                <div id="top_pattern"></div>
+                <div id="title">
+                    <a href="#">
+                        Coffee Genius
+                    </a>
+                </div>
+                <div id="sub_title">
+                    Find your new coffee love here
+                </div>
+                <script type="text/javascript">
+                    var allVarieties = [{"id": 403, "description": "100% Colombian", "idbrand": 21}, {"id": 326, "description": "Amazonia", "idbrand": 29}, {"id": 401, "description": "Big Easy Bold", "idbrand": 22}, {"id": 400, "description": "Black Silk", "idbrand": 23}, {"id": 415, "description": "Black Tiger", "idbrand": 2}, {"id": 355, "description": "Blonde Veranda Blend", "idbrand": 6}, {"id": 347, "description": "Breakfast Blend", "idbrand": 8}, {"id": 354, "description": "Breakfast Blend", "idbrand": 6}, {"id": 391, "description": "Breakfast Blend", "idbrand": 5}, {"id": 395, "description": "Butter Toffee", "idbrand": 4}, {"id": 331, "description": "Caffe Mocha", "idbrand": 8}, {"id": 353, "description": "Caffe Verona", "idbrand": 6}, {"id": 399, "description": "Caramel Drizzle", "idbrand": 23}, {"id": 390, "description": "Caramel Vanilla Cream", "idbrand": 5}, {"id": 420, "description": "Caribou Blend", "idbrand": 19}, {"id": 418, "description": "Caribou Blend Natural Decaf", "idbrand": 19}, {"id": 408, "description": "Chocolate Glazed Donut", "idbrand": 20}, {"id": 345, "description": "Cinnamon Pastry", "idbrand": 8}, {"id": 407, "description": "Cinnamon Roll", "idbrand": 20}, {"id": 398, "description": "Classic Roast", "idbrand": 23}, {"id": 360, "description": "Coconut Mocha", "idbrand": 25}, {"id": 422, "description": "Colombia", "idbrand": 18}, {"id": 417, "description": "Colombia", "idbrand": 19}, {"id": 343, "description": "Colombian Excelencia", "idbrand": 8}, {"id": 342, "description": "Colombian La Vereda", "idbrand": 8}, {"id": 327, "description": "Colombian Medium", "idbrand": 29}, {"id": 402, "description": "Dark Italian Roast", "idbrand": 21}, {"id": 389, "description": "Dark Magic", "idbrand": 5}, {"id": 416, "description": "Daybreak Morning Blend", "idbrand": 19}, {"id": 388, "description": "Decaf Breakfast Blend", "idbrand": 5}, {"id": 344, "description": "Decaf Colombian", "idbrand": 8}, {"id": 387, "description": "Decaf Dark Magic", "idbrand": 5}, {"id": 386, "description": "Decaf French Roast", "idbrand": 5}, {"id": 385, "description": "Decaf French Vanilla", "idbrand": 5}, {"id": 384, "description": "Decaf Hazelnut", "idbrand": 5}, {"id": 358, "description": "Decaf House Blend ", "idbrand": 26}, {"id": 421, "description": "Decaf Italian Roast", "idbrand": 18}, {"id": 352, "description": "Decaf Pike Place", "idbrand": 6}, {"id": 341, "description": "Decaf Rainforest Espresso", "idbrand": 8}, {"id": 383, "description": "Decaf Vermount Country Blend", "idbrand": 5}, {"id": 410, "description": "Donut House Coffee", "idbrand": 20}, {"id": 362, "description": "Donut Shop Coffee", "idbrand": 25}, {"id": 361, "description": "Donut Shop Coffee Decaf", "idbrand": 25}, {"id": 382, "description": "Double Black Diamond&amp;comma; Xb", "idbrand": 5}, {"id": 324, "description": "Eclipse", "idbrand": 29}, {"id": 381, "description": "Fair Trade Colombian", "idbrand": 5}, {"id": 412, "description": "French Roast", "idbrand": 3}, {"id": 424, "description": "French Roast", "idbrand": 18}, {"id": 380, "description": "French Roast", "idbrand": 5}, {"id": 357, "description": "French Roast", "idbrand": 26}, {"id": 329, "description": "French Roast Decaf", "idbrand": 28}, {"id": 379, "description": "French Vanilla", "idbrand": 5}, {"id": 393, "description": "French Vanilla Supreme", "idbrand": 4}, {"id": 339, "description": "German Chocolate Cake", "idbrand": 8}, {"id": 364, "description": "Half-Caff", "idbrand": 5}, {"id": 376, "description": "Hazelnut", "idbrand": 5}, {"id": 405, "description": "Hazelnut", "idbrand": 21}, {"id": 392, "description": "Hazelnut", "idbrand": 4}, {"id": 325, "description": "House Blend", "idbrand": 29}, {"id": 330, "description": "House Blend", "idbrand": 28}, {"id": 359, "description": "House Blend", "idbrand": 26}, {"id": 351, "description": "House Blend", "idbrand": 6}, {"id": 338, "description": "Irish Cream", "idbrand": 8}, {"id": 337, "description": "Italian Blend", "idbrand": 8}, {"id": 328, "description": "Italian Roast", "idbrand": 28}, {"id": 423, "description": "Italian Roast", "idbrand": 18}, {"id": 414, "description": "Jet Fuel", "idbrand": 2}, {"id": 375, "description": "Kenyan AA", "idbrand": 5}, {"id": 374, "description": "Lake and Lodge", "idbrand": 5}, {"id": 397, "description": "Lively Colombian", "idbrand": 23}, {"id": 419, "description": "Mahogany", "idbrand": 19}, {"id": 356, "description": "Major Dickason", "idbrand": 26}, {"id": 336, "description": "Midnight Magic", "idbrand": 8}, {"id": 373, "description": "Milk Chocolate Hot Cocoa", "idbrand": 5}, {"id": 335, "description": "Mocha Java", "idbrand": 8}, {"id": 372, "description": "Mocha Nut Fudge", "idbrand": 5}, {"id": 332, "description": "Morning Blend", "idbrand": 8}, {"id": 409, "description": "Morning Edition", "idbrand": 3}, {"id": 411, "description": "Morning Edition Decaf", "idbrand": 3}, {"id": 394, "description": "Mudslide", "idbrand": 4}, {"id": 371, "description": "Nantucket Blend", "idbrand": 5}, {"id": 323, "description": "Napoletano", "idbrand": 29}, {"id": 370, "description": "Newman Coffee Special", "idbrand": 5}, {"id": 369, "description": "Newman's Special Decaf", "idbrand": 5}, {"id": 334, "description": "Nicaragua Fair Trade Organic", "idbrand": 8}, {"id": 406, "description": "Original", "idbrand": 21}, {"id": 363, "description": "Original", "idbrand": 24}, {"id": 340, "description": "Original Donut Blend", "idbrand": 8}, {"id": 368, "description": "Our Blend", "idbrand": 5}, {"id": 350, "description": "Pike Place Roast", "idbrand": 6}, {"id": 333, "description": "Rainforest Espresso", "idbrand": 8}, {"id": 413, "description": "Rio Blend", "idbrand": 3}, {"id": 367, "description": "Southern Pecan", "idbrand": 5}, {"id": 346, "description": "Sugar Bush Maple", "idbrand": 8}, {"id": 349, "description": "Sumatra", "idbrand": 6}, {"id": 377, "description": "Sumatran Reserve&amp;comma; Extra Bold", "idbrand": 5}, {"id": 404, "description": "The Original Decaf", "idbrand": 21}, {"id": 396, "description": "Vanilla Biscotti", "idbrand": 23}, {"id": 348, "description": "Veranda Blend", "idbrand": 6}, {"id": 366, "description": "Vermont Country Blend", "idbrand": 5}, {"id": 365, "description": "Vermont Country Blend Decaf", "idbrand": 5}, {"id": 378, "description": "Wild Mountain Blueberry", "idbrand": 5}];
+                </script>
+
+                <div id="buttons_wrapper">
+                    <div class="sub_title_addon">If you like</div>
+                    <div class="content_wrapper brands_wrapper">
+                        <div class="content">
+                            <div class="sub_content">
+                                <div class="inner_content orange">
+                                    <a href="#" class="open_brands big_button"><span>Step 1: Select Brand</span>
+                                        <!--<?= Icon::show('th-menu', ['class' => 'icon-menu'], Icon::TYP) ?>-->
+                                    </a>
+
+
+
+                                    <div class="items_list brands" style="display: none;">
+                                        <div class="item_col">
+
+                                            <div class="alpha_title"><?php echo $brands['rangeStart']; ?></div>
+                                            
+
+                                            <div class="alpha_title">A - F</div>
+                                            <a href="#" class="item" id="18" >Barista Prima</a>
+                                            <a href="#" class="item" id="19" >Caribou</a>
+                                            <a href="#" class="item" id="1" >Caribou Coffee</a>
+                                            <a href="#" class="item" id="2" >Coffee People</a>
+                                            <a href="#" class="item" id="3" >Diedrich</a>
+                                            <a href="#" class="item" id="20" >Donut House</a>
+                                            <a href="#" class="item" id="21" >Eight O'Clock</a>
+                                            <a href="#" class="item" id="22" >Emeril</a>
+                                            <a href="#" class="item" id="23" >Folgers</a>
+                                        </div>
+                                        <div class="item_col">
+                                            <div class="alpha_title">G - Z</div>
+                                            <a href="#" class="item" id="4">Gloria Jeans</a>
+                                            <a href="#" class="item" id="5">Green Mountain</a>
+                                            <a href="#" class="item" id="24">Kahlua</a>
+                                            <a href="#" class="item" id="25">Original Donut Shop</a>
+                                            <a href="#" class="item" id="26">Peets Coffee</a>
+                                            <a href="#" class="item" id="6">Starbucks</a>
+                                            <a href="#" class="item" id="8">Timothy's</a>
+                                            <a href="#" class="item" id="7">Tully's</a>
+                                            <a href="#" class="item" id="28">Tully's Coffee </a>
+                                            <a href="#" class="item" id="29">Van Houtte</a>
+                                        </div>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content_wrapper varieties_wrapper">
+                        <div class="content">
+                            <div class="sub_content">
+                                <div class="inner_content orange">
+                                    <a href="#" class="open_varieties big_button unactive"><span>Step 2: Select Variety</span>
+                                        <!--<?= Icon::show('th-menu', ['class' => 'icon-menu'], Icon::TYP) ?>-->
+                                    </a>
+
+                                    <div class="items_list vars" style="">
+                                        <div class="item_col">
+                                            <div class="alpha_title"></div>
+                                        </div>
+                                        <div class="item_col">
+                                            <div class="alpha_title"></div>
+                                        </div>
+
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="content_wrapper products_wrapper">
+                <div class="list_items" id="products"></div>
+            </div>
+
+            <div class="semi_blocks_wrapper">
+
+                <div class="content_wrapper half">
+                    <div class="content">
+                        <div class="sub_content">
+                            <div class="inner_content orange">
+                                <a href="#" class="big_menu_button">
+                                    <div class="inner">
+
+
+
+
+                                    </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+        </div>
+
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
