@@ -37,6 +37,7 @@
     <gap:plugin name="org.apache.cordova.file-transfer" source="npm" />
     <gap:plugin name="org.apache.cordova.geolocation" source="npm" />
     <gap:plugin name="org.apache.cordova.globalization" source="npm" /-->
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
     <!--gap:plugin name="org.apache.cordova.media" source="npm" /-->
     <gap:plugin name="cordova-plugin-network-information" source="npm" />
@@ -68,7 +69,7 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" /-->
     <access origin="*" />
-    <plugin name="cordova-plugin-whitelist" version="1" />
+    <!--<plugin name="cordova-plugin-whitelist" version="1" />-->
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
