@@ -29,68 +29,17 @@
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/index1.js"></script>
-        <script type="text/javascript">
-            $(function () {
-//                $.ajax({
-//                    type: "POST",
-//                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
-////                            data: '{"HERE YOU CAN PUT DATA TO PASS AT THE SERVICE"}',
-//                    contentType: "application/json; charset=utf-8",
-//                    dataType: "json",
-//                    success: function (r) {
-//                        alert(r.responseText);
-//                        //do something
-//                    },
-//                    error: function (errormessage) {
-//                        alert(errormessage);
-//                        //do something else
-//
-//                    }
-//                });
-                var allVarieties = '';
-                $.get('http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
-                        {}, function (data) {
-                            $('.container').html(data);
-                });
-//                    alert(allVarieties)
-
-            });
-//            document.addEventListener("deviceready", onDeviceReady, false);
-//            function onDeviceReady() {
-
-//            }
-
-
-//            .ajax({
-//                url: "http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/",
-//                // The name of the callback parameter, as specified by the YQL service
-//                jsonp: "callback1",
-//                // Tell jQuery we're expecting JSONP
-//                dataType: "jsonp",
-//                // Work with the response
-//                success: function (response) {
-//                    alert(response);
-//                    console.log(response); // server response
-//                },
-//                error: function (err) {
-//                    alert('err = '+err);
-//                }
-//            });
-//            
-//            function callback1() {
-//                alert('call');
-//            }
-
-        </script>
 
         <title>Coffee Genius</title>
     </head>
     <body>
         <div class="app">
+            <div class="spin-coffee visible">
+                <div class="spin-coffee-head">
+                    <p>Coffee Genius</p>
+                </div>
+                <div class="spin-coffee-body"></div>
+            </div>
             <div id="head_wrapper">
                 <div id="top_pattern"></div>
                 <div id="title">
@@ -103,7 +52,7 @@
                 </div>
 
                 <div class="container">
-                    
+
                 </div>
 
             </div>
@@ -112,6 +61,22 @@
             <div class="clear"></div>
         </div>
 
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/index1.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                setTimeout(
+                        $.ajax({
+                            url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+                            success: function (data) {
+                                $('.spin-coffee').removeClass('visible')
+                                $('.container').html(data);
+                            }
+                        })), 1000
+            });
+        </script>
         <script type="text/javascript">
             app.initialize();
         </script>
