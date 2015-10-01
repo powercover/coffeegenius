@@ -67,7 +67,7 @@ var rebuildCols = function (inner_content, idbrand) {
             class: 'item',
             id: items[i].id,
             idbrand: items[i].idbrand,
-            href: 'javascript:void(0);',
+            href: 'javascript:void(0);'
         }).text(items[i].description).appendTo(column);
     }
 
@@ -99,18 +99,12 @@ var rebuildCols = function (inner_content, idbrand) {
     }, 100);
 }
 
-//var coffee = {
-//    ajax: function() {
-//        
-//    }
-//}
-
 $(document).ready(function () {
     buttonWidth = $('.content_wrapper.half').width();
     $('.content_wrapper.half').height(buttonWidth);
 
 
-    $('.open_brands, .open_varieties').on('click', function (e) {
+    $(document).on('click', '.open_brands, .open_varieties', function (e) {
         e.preventDefault();
 
         var menu = $(this).next();
@@ -224,7 +218,7 @@ $(document).ready(function () {
         $('body').animate({opacity: 1});
     }, 150);
 
-    $('body').on('click', '.big_menu_button', function (e) {
+    $(document).on('click', '.big_menu_button', function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
 
@@ -241,7 +235,7 @@ $(document).ready(function () {
         //and send a request
         $.ajax({
             type: "POST",
-            url: 'index.php?r=welcome/getproductsbycustomsugs/',
+            url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/getproductsbycustomsugs/',
             data: {
                 custom_sugs: custom_sugs
             },
@@ -307,7 +301,7 @@ $(document).ready(function () {
         });
 
     });
-    $('body').on('click', '.item_col .item', function (e) {
+    $(document).on('click', '.item_col .item', function (e) {
         e.preventDefault();
         e.stopImmediatePropagation();
 
@@ -339,7 +333,7 @@ $(document).ready(function () {
             rebuildCols($('.vars'), $(this).attr('id'));
         } else if (menu.parent().find('.big_button').hasClass('open_varieties')) { //get variety
             variety = $(this).text();
-
+            variety_id = $(this).attr('id');
             $('.semi_blocks_wrapper').css('display', 'none');
             $('#product_list').css('display', 'block');
 
@@ -350,10 +344,11 @@ $(document).ready(function () {
             //and send a request
             $.ajax({
                 type: "POST",
-                url: 'index.php?r=welcome/getall/',
+                url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/getall/',
                 data: {
                     brand: brand,
-                    variety: variety
+                    variety: variety,
+                    id: variety_id
                 },
                 success: function (data) {
                     $('#products').html(data).find('.list_item').each(function () {
@@ -407,8 +402,8 @@ $(document).ready(function () {
 
                         }
 
-                        $('#products').removeClass('loading');
                     });
+                    $('#products').removeClass('loading');
                 }
             });
         }
@@ -416,3 +411,4 @@ $(document).ready(function () {
 
     });
 });
+
