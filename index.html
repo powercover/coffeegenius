@@ -34,40 +34,40 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/index1.js"></script>
         <script type="text/javascript">
-//            $.ajax({
-//                type: "POST",
-////                contentType: "application/json",
-//                url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
-////                dataType: "json",
-//                success: function (data, textStatus, jqXHR) {
-//                    console.log(data);
-//                    alert(data);
-//                },
-//                error: function (jqXHR, textStatus, errorThrown) {
-//                    console.log(errorThrown);
-//                    alert(errorThrown);
-//                }
-//            })
-
-            .ajax({
-                url: "http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/",
-                // The name of the callback parameter, as specified by the YQL service
-                jsonp: "callback1",
-                // Tell jQuery we're expecting JSONP
-                dataType: "jsonp",
-                // Work with the response
-                success: function (response) {
-                    alert(response);
-                    console.log(response); // server response
+            $.ajax({
+                type: "POST",
+//                contentType: "application/json",
+                url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+//                dataType: "json",
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    alert(data);
                 },
-                error: function (err) {
-                    alert('err = '+err);
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                    alert(errorThrown);
                 }
-            });
-            
-            function callback1() {
-                alert('call');
-            }
+            })
+
+//            .ajax({
+//                url: "http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/",
+//                // The name of the callback parameter, as specified by the YQL service
+//                jsonp: "callback1",
+//                // Tell jQuery we're expecting JSONP
+//                dataType: "jsonp",
+//                // Work with the response
+//                success: function (response) {
+//                    alert(response);
+//                    console.log(response); // server response
+//                },
+//                error: function (err) {
+//                    alert('err = '+err);
+//                }
+//            });
+//            
+//            function callback1() {
+//                alert('call');
+//            }
 
         </script>
 
