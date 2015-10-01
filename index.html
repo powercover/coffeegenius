@@ -29,25 +29,30 @@
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/index1.js"></script>
         <script type="text/javascript">
-            $.ajax({
-                type: "POST",
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+                $.ajax({
+                    type: "POST",
 //                contentType: "application/json",
-                url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
 //                dataType: "json",
-                success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-                    alert(data);
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    console.log(errorThrown);
-                    alert(errorThrown);
-                }
-            })
+                    success: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        alert(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(errorThrown);
+                        alert(errorThrown);
+                    }
+                })
+            }
+
 
 //            .ajax({
 //                url: "http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/",
