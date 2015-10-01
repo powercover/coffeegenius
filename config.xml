@@ -27,7 +27,7 @@
     <!--gap:plugin name="org.apache.cordova.battery-status" source="npm" />
     <gap:plugin name="org.apache.cordova.camera" source="npm" />
     <gap:plugin name="org.apache.cordova.media-capture" source="npm" />-->
-    <gap:plugin name="cordova-plugin-cordova.console" source="npm" />
+    <gap:plugin name="cordova-plugin-console" source="npm" />
     <!--<gap:plugin name="org.apache.cordova.contacts" source="npm" /-->
     <gap:plugin name="cordova-plugin-device" source="npm" />
     <!--<gap:plugin name="org.apache.cordova.device-motion" source="npm" /-->
