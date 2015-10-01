@@ -34,25 +34,27 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/index1.js"></script>
         <script type="text/javascript">
-            document.addEventListener("deviceready", onDeviceReady, false);
-            function onDeviceReady() {
-                $.ajax({
-                    type: "POST",
-                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+            $(document).ready(function () {
+                document.addEventListener("deviceready", onDeviceReady, false);
+                function onDeviceReady() {
+                    $.ajax({
+                        type: "POST",
+                        url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
 //                            data: '{"HERE YOU CAN PUT DATA TO PASS AT THE SERVICE"}',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (msg) {
-                        alert(msg);
-                        //do something
-                    },
-                    error: function (errormessage) {
-                        alert(errormessage);
-                        //do something else
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (msg) {
+                            alert(msg);
+                            //do something
+                        },
+                        error: function (errormessage) {
+                            alert(errormessage);
+                            //do something else
 
-                    }
-                });
-            }
+                        }
+                    });
+                }
+            });
 
 
 //            .ajax({
