@@ -152,9 +152,9 @@ a, a:hover {
     margin-top: 48px
 }
 .content_wrapper {
-    -webkit-transform: translate3d(0,0,0);
+/*    -webkit-transform: translate3d(0,0,0);
     -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;
+    -webkit-perspective: 1000;*/
     /*width: 100%;*/
     padding: 0px 2px;
     /*margin-bottom: 10px;*/
