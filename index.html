@@ -67,14 +67,13 @@
         <script type="text/javascript" src="js/index1.js"></script>
         <script type="text/javascript">
             $(function () {
-                setTimeout(
-                        $.ajax({
-                            url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
-                            success: function (data) {
-                                $('.spin-coffee').removeClass('visible')
-                                $('.container').html(data);
-                            }
-                        })), 1000
+                $.ajax({
+                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+                    success: function (data) {
+                        $('.spin-coffee').removeClass('visible')
+                        $('.container').html(data);
+                    }
+                });
             });
         </script>
         <script type="text/javascript">
