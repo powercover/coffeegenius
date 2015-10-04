@@ -32,7 +32,7 @@
 
         <title>Coffee Genius</title>
     </head>
-    <body onload="init()">
+    <body>
         <div class="app">
             <div class="spin-coffee visible">
                 <div class="spin-coffee-head">
@@ -64,12 +64,8 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/index1.js"></script>
         <script type="text/javascript">
-            function init() {
-                document.addEventListener("deviceready", onDeviceReady, false);
-            }
-            function onDeviceReady() {
+            $(function () {
                 $.ajax({
                     url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
                     success: function (data) {
@@ -77,8 +73,9 @@
                         $('.container').html(data);
                     }
                 });
-            }
+            });
         </script>
+        <script type="text/javascript" src="js/index1.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
