@@ -340,7 +340,7 @@
                                         id: variety_id
                                     },
                                     success: function (data) {
-                                        $('#products').html(data).find('.list_item').each(function () {
+                                        $('.container').html(data).find('.list_item').each(function () {
                                             var self = this;
 
                                             var circle = $(this).find('.image_circle');
