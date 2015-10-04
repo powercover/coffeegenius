@@ -72,28 +72,22 @@
                     success: function (data) {
                         $('.spin-coffee').removeClass('visible')
                         $('.container').html(data);
-
                         var brand = '';
                         var variety = '';
                         var custom_sugs = '';
-
                         var buttonWidth = '';
                         var descBlockWidth = '';
-
                         var rebuildCols = function (inner_content, idbrand) {
                             // Clear columns
                             $(inner_content).find('.item_col .item').remove();
                             $(inner_content).closest('.content').css('visibility', 'hidden');
-
                             var items = [];
-
                             for (var i in allVarieties) {
                                 if (idbrand == undefined || allVarieties[i].idbrand == idbrand) {
                                     items.push(allVarieties[i]);
                                 }
                             }
                             ;
-
                             if (items.length == 0) {
                                 return;
                             }
@@ -107,9 +101,7 @@
                                     return 0;
                                 }
                             });
-
                             var firstCol = Math.ceil(items.length / 2);
-
                             var firstColAlpha = '&nbsp;';
                             if (items[0].description[0] != items[firstCol - 1].description[0]) {
                                 firstColAlpha = items[0].description[0] + ' - ' + items[firstCol - 1].description[0];
@@ -121,17 +113,14 @@
                             }
 
                             var secondColAlpha = '&nbsp;';
-
                             if (secondCol && items[firstCol].description[0] != items[firstCol + secondCol - 1].description[0]) {
                                 secondColAlpha = items[firstCol].description[0] + ' - ' + items[firstCol + secondCol - 1].description[0];
                             }
 
                             $(inner_content).find('.item_col:eq(0) .alpha_title').html(firstColAlpha);
                             $(inner_content).find('.item_col:eq(1) .alpha_title').html(secondColAlpha);
-
                             for (var i in items) {
                                 var column;
-
                                 if (i < firstCol) {
                                     column = $(inner_content).find('.item_col:eq(0)');
                                 } else {
@@ -151,20 +140,15 @@
                             setTimeout(function () {
                                 console.log($(inner_content).height());
                                 $(inner_content).data('actualHeight', $(inner_content).height()).css({display: 'none', height: '0px'});
-
                                 $(inner_content).closest('.content').css('visibility', '');
-
                                 $(inner_content).prev('.big_button').removeClass('unactive');
                             }, 100);
                         }
 
                         buttonWidth = $('.content_wrapper.half').width();
                         $('.content_wrapper.half').height(buttonWidth);
-
-
                         $(document).on('click', '.open_brands, .open_varieties', function (e) {
                             e.preventDefault();
-
                             var menu = $(this).next();
                             if (!$(this).hasClass('unactive')) {
 
@@ -178,49 +162,35 @@
                                 }
                             }
                         });
-
                         $(window).resize(function () {
                             if ($(window).width() >= 384)
                                 console.log("landscape");
                             buttonWidth = $('.content_wrapper.half').width();
                             $('.content_wrapper.half').height(buttonWidth);
-
                             descBlockWidth = $('.list_items .list_item_wrapper').width() - 167;
-
                             $('.list_items .list_item_wrapper .list_item .desc_block').width(descBlockWidth);
-
                             $('.scroll_block').width(descBlockWidth - 5);
                             $('.scroll_block .jspContainer').width(descBlockWidth - 5);
                             $('.scroll_block .jspContainer .jspPane').width(descBlockWidth - 5);
                             $('.desc_block').find('.scroll_block').jScrollPane();
-
                         });
-
-
-
                         $('.brands').data('actualHeight', $('.brands').height()).css({display: 'none', height: '0px'});
                         $('.vars').data('actualHeight', $('.vars').height()).css({display: 'none', height: '0px'});
-
                         // rebuildCols($('.vars'));
 
                         setTimeout(function () {
                             $('body').animate({opacity: 1});
                         }, 150);
-
                         $(document).on('click', '.big_menu_button', function (e) {
                             e.preventDefault();
                             e.stopImmediatePropagation();
-
                             custom_sugs = $(this).find('.title').data('ids');
 //        console.log(custom_sugs);
 
                             $('.semi_blocks_wrapper').css('display', 'none');
                             $('#product_list').css('display', 'block');
-
                             $('#product_list .sub_title').text('Recommendations for ' + variety + ':');
-
                             $('#products').addClass('loading').html('');
-
                             //and send a request
                             $.ajax({
                                 type: "GET",
@@ -234,22 +204,17 @@
                                     $('#products').html(data).find('.list_item').each(function () {
                                         var self = this;
                                         var circle = $(this).find('.image_circle');
-
                                         var circleWidth = circle.width()
 
                                         var circleBorderWidth = 7;
-
                                         if (window.screen.availWidth > 1024) {
                                             circleBorderWidth = 4;
                                         }
 
                                         circleWidth += circleBorderWidth * 2;
-
                                         var backgroundSize = circle.data('b-size');
                                         var multiplier = circleWidth / backgroundSize;
-
                                         descBlockWidth = $('.list_items .list_item_wrapper').width() - 167;
-
                                         $('.list_items .list_item_wrapper .list_item .desc_block').width(descBlockWidth);
 //                    console.log(descBlockWidth)
 
@@ -262,7 +227,6 @@
                                             bgPos[0] = parseInt(bgPos[0]) * multiplier - circleBorderWidth + 'px';
                                             bgPos[1] = parseInt(bgPos[1]) * multiplier - circleBorderWidth + 'px';
                                             bgPos = bgPos.join(' ');
-
                                             circle.css({
                                                 width: circleWidth,
                                                 height: circleWidth,
@@ -272,7 +236,6 @@
                                             $(self).find('.desc_block .scroll_block').height(circleWidth + (circleBorderWidth * 2) - 10);
                                             $(self).find('.desc_block .scroll_block').jScrollPane();
                                         };
-
                                         $('#products').removeClass('single double');
                                         switch ($('#products .list_item_wrapper').length) {
                                             case 1:
@@ -281,24 +244,19 @@
                                             case 2:
                                                 $('#products').addClass('double');
                                                 break;
-
                                         }
 
                                     });
                                     $('#products').removeClass('loading');
                                 }
                             });
-
                         });
                         $(document).on('click', '.item_col .item', function (e) {
                             e.preventDefault();
                             e.stopImmediatePropagation();
-
                             $('.vars .item').css('display', 'block');
                             var menu = $(this).closest('.items_list');
-
                             menu.parent().find('.big_button span').text($(this).text());
-
                             if (menu.css('display') == 'none') {
                                 menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
                                 });
@@ -314,22 +272,16 @@
                                 //$('.items_list .vars .item[idbrand!=' + $(this).attr('idbrand') + ']').css('display', 'none');
                                 $('.vars .item').removeClass('hidden');
                                 $('.vars .item[idbrand!=' + $(this).attr('id') + ']').addClass('hidden');
-
                                 $('.vars').css({display: '', height: ''}).data('actualHeight', $('.vars').height());
-
                                 $('.open_varieties.big_button span').text('Select Variety');
-
                                 rebuildCols($('.vars'), $(this).attr('id'));
                             } else if (menu.parent().find('.big_button').hasClass('open_varieties')) { //get variety
                                 variety = $(this).text();
                                 variety_id = $(this).attr('id');
                                 $('.semi_blocks_wrapper').css('display', 'none');
                                 $('#product_list').css('display', 'block');
-
                                 $('#product_list .sub_title').text('Recommendations for ' + variety + ':');
-
                                 $('#products').addClass('loading').html('');
-
                                 //and send a request
                                 $.ajax({
                                     type: "GET",
@@ -340,27 +292,23 @@
                                         id: variety_id
                                     },
                                     success: function (data) {
-                                        $('.container').html(data).find('.list_item').each(function () {
-                                            var self = this;
+                                        $('.container').html("<div class='content_wrapper products_wrapper'>< div class = 'list_items' id = 'products' > < /div>< /div>");
 
+
+                                        $('#products').html(data).find('.list_item').each(function () {
+                                            var self = this;
                                             var circle = $(this).find('.image_circle');
                                             var circleWidth = circle.width()
                                             var circleBorderWidth = 7;
-
                                             if (window.screen.availWidth > 1024) {
                                                 circleBorderWidth = 4;
                                             }
 
                                             circleWidth += circleBorderWidth * 2;
-
                                             var backgroundSize = circle.data('b-size');
                                             var multiplier = circleWidth / backgroundSize;
-
-
                                             descBlockWidth = $('.list_items .list_item_wrapper').width() - 167;
-
                                             $('.list_items .list_item_wrapper .list_item .desc_block').width(descBlockWidth);
-
                                             var img = new Image();
                                             img.src = '/' + circle.data('b-image');
                                             img.onload = function () {
@@ -368,18 +316,15 @@
                                                 bgPos[0] = parseInt(bgPos[0]) * multiplier - circleBorderWidth + 'px';
                                                 bgPos[1] = parseInt(bgPos[1]) * multiplier - circleBorderWidth + 'px';
                                                 bgPos = bgPos.join(' ');
-
                                                 circle.css({
                                                     width: circleWidth,
                                                     height: circleWidth,
                                                     backgroundSize: img.width * multiplier + 'px',
                                                     backgroundPosition: bgPos,
                                                 });
-
                                                 $(self).find('.desc_block .scroll_block').height(circleWidth + (circleBorderWidth * 2) - 10);
                                                 $(self).find('.desc_block .scroll_block').jScrollPane();
                                             };
-
                                             $('#products').removeClass('single double');
                                             switch ($('#products .list_item_wrapper').length) {
                                                 case 1:
@@ -388,7 +333,6 @@
                                                 case 2:
                                                     $('#products').addClass('double');
                                                     break;
-
                                             }
 
                                         });
@@ -401,9 +345,7 @@
                         });
                     }
                 });
-
-            });
-        </script>
+            });</script>
         <script type="text/javascript">
             app.initialize();
         </script>
