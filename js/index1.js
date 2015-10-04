@@ -104,7 +104,6 @@ $(document).ready(function () {
     $('.content_wrapper.half').height(buttonWidth);
 
 
-
     $(document).on('click', '.open_brands, .open_varieties', function (e) {
         e.preventDefault();
 
