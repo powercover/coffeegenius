@@ -43,7 +43,7 @@
             <div id="head_wrapper">
                 <div id="top_pattern"></div>
                 <div id="title">
-                    <a href="#">
+                    <a href="index.html">
                         Coffee Genius
                     </a>
                 </div>
@@ -70,7 +70,11 @@
                 $.ajax({
                     url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
                     success: function (data) {
-                        $('.spin-coffee').removeClass('visible')
+
+                        setTimeout(function () {
+                            $('.spin-coffee').removeClass('visible')
+                        }, 1000);
+
                         $('.container').html(data);
                         var brand = '';
                         var variety = '';

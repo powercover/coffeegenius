@@ -24,7 +24,7 @@ body {
     font-family: sans-serif;
     font-family: 'MyriadPro';
     font-size: 7px;
-    opacity: 0;
+    /*opacity: 0;*/
     -webkit-text-size-adjust: 100%;
 }
 
@@ -860,6 +860,7 @@ a, a:hover {
     margin: 0 !important;
     padding: 0 !important;
     background-color: #d8d2cb;
+    z-index: 100;
 }
 .spin-coffee .spin-coffee-head {
     background-color: #443534;
