@@ -66,6 +66,10 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    $('.app').css({marginTop: 20});
+                }
+
                 $.ajax({
                     url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
                     success: function (data) {
