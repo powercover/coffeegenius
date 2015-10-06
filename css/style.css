@@ -152,9 +152,9 @@ a, a:hover {
     margin-top: 48px
 }
 .content_wrapper {
-/*    -webkit-transform: translate3d(0,0,0);
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;*/
+    /*    -webkit-transform: translate3d(0,0,0);
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;*/
     /*width: 100%;*/
     padding: 0px 2px;
     /*margin-bottom: 10px;*/
@@ -885,7 +885,7 @@ a, a:hover {
     background: url('../img/loading.GIF');
     width: 64px;
     height: 64px;
-    
+
 }
 
 .visible {
@@ -910,4 +910,5 @@ a, a:hover {
     height: 20px;
     position: fixed;
     top: 0;
+    background-color: #443534;
 }
