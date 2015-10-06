@@ -406,7 +406,7 @@ a, a:hover {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 7px;
-    background: url('item_image_bg.png') repeat center;
+    background: url('http://coffeegenius.org/item_image_bg.png') repeat center;
 }
 
 .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
@@ -594,7 +594,7 @@ a, a:hover {
 }
 @media (max-width: 767px) {
     #title {
-        height: 80px;
+        height: 70px;
     }
 
     #title a{
@@ -604,6 +604,7 @@ a, a:hover {
 
     #sub_title {
         font-size: 12pt !important;
+        font-weight: bold;
     }
     .icon-menu {
         /*right: 25px;*/
