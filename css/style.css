@@ -903,3 +903,11 @@ a, a:hover {
     margin: 0px;
 }
 
+/*ios statusbar fix*/
+
+.statusbar-back {
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    top: 0;
+}

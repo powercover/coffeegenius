@@ -67,7 +67,8 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                    $('body').css({marginTop: 20});
+                    $('body').append('<div class=statusbar-back"></div>')
+                    $('.app').css({marginTop: 20});
                 }
 
                 $.ajax({
