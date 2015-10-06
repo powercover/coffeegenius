@@ -156,8 +156,8 @@
                         $('.content_wrapper.half').height(buttonWidth);
 
 
-                        $('.brands').data('actualHeight', $('.brands').height())/*.css({display: 'none', height: '0px'})*/;
-                        $('.vars').data('actualHeight', $('.vars').height())/*.css({display: 'none', height: '0px'})*/;
+                        $('.brands').css('display', 'block').data('actualHeight', $('.brands').height())/*.css({display: 'none', height: '0px'})*/;
+                        $('.vars').css('display', 'block').data('actualHeight', $('.vars').height())/*.css({display: 'none', height: '0px'})*/;
 
 
                         var menu = $('.items_list.brands');
