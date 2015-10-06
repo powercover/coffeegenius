@@ -28,7 +28,7 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+        <link href="http://coffeegenius.org/assets/9c958684/css/typicons.css" rel="stylesheet">
 
         <title>Coffee Genius</title>
     </head>
@@ -64,11 +64,15 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <!--<script type="text/javascript" src="js/index1.js"></script>-->
         <script type="text/javascript">
             $(document).ready(function () {
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    $('body').append('<div class="statusbar-back"></div>')
+                    $('.app').css({marginTop: 20});
+                }
+
                 $.ajax({
-                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+                    url: 'http://coffeegenius.org/index.php?r=welcome/phonegapindex/',
                     success: function (data) {
 
                         setTimeout(function () {
@@ -157,12 +161,9 @@
                             if (!$(this).hasClass('unactive')) {
 
                                 if (menu.css('display') == 'none') {
-                                    menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
-                                    });
+                                    menu.css('display', 'block').css({height: menu.data('actualHeight') + 'px', overflow: 'hidden'});
                                 } else {
-                                    menu.animate({height: '0px'}, 500, function () {
-                                        menu.css('display', 'none')
-                                    });
+                                    menu.css({height: '0px', overflow: 'hidden', 'display': 'none'});
                                 }
                             }
                         });
@@ -201,7 +202,7 @@
                             //and send a request
                             $.ajax({
                                 type: "GET",
-                                url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapgetproductsbycustomsugs/',
+                                url: 'http://coffeegenius.org/index.php?r=welcome/phonegapgetproductsbycustomsugs/',
                                 data: {
                                     custom_sugs: custom_sugs
                                 },
@@ -227,7 +228,7 @@
 
 
                                         var img = new Image();
-                                        img.src = '/' + circle.data('b-image');
+                                        img.src = circle.data('b-image');
                                         console.log(img);
                                         img.onload = function () {
                                             var bgPos = circle.css('backgroundPosition').split(' ');
@@ -265,12 +266,9 @@
                             var menu = $(this).closest('.items_list');
                             menu.parent().find('.big_button span').text($(this).text());
                             if (menu.css('display') == 'none') {
-                                menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
-                                });
+                                menu.css('display', 'block').css({height: menu.data('actualHeight') + 'px', overflow: 'hidden'});
                             } else {
-                                menu.animate({height: '0px'}, 500, function () {
-                                    menu.css('display', 'none')
-                                });
+                                menu.css({height: '0px', overflow: 'hidden', 'display': 'none'});
                             }
 
                             //prepare data
@@ -292,7 +290,7 @@
                                 //and send a request
                                 $.ajax({
                                     type: "GET",
-                                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapgetall/',
+                                    url: 'http://coffeegenius.org/index.php?r=welcome/phonegapgetall/',
                                     data: {
                                         brand: brand,
                                         variety: variety,
@@ -314,7 +312,7 @@
                                             descBlockWidth = $('.list_items .list_item_wrapper').width() - 167;
                                             $('.list_items .list_item_wrapper .list_item .desc_block').width(descBlockWidth);
                                             var img = new Image();
-                                            img.src = '/' + circle.data('b-image');
+                                            img.src = circle.data('b-image');
                                             img.onload = function () {
                                                 var bgPos = circle.css('backgroundPosition').split(' ');
                                                 bgPos[0] = parseInt(bgPos[0]) * multiplier - circleBorderWidth + 'px';
