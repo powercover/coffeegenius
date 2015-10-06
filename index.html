@@ -32,7 +32,11 @@
 
         <title>Coffee Genius</title>
     </head>
-    <body>
+    <body style="-webkit-transform: translate3d(0,0,0);">
+        <style class="items_list_styles">
+
+        </style>
+
         <div class="app">
             <div class="spin-coffee visible">
                 <div class="spin-coffee-head">
@@ -52,7 +56,6 @@
                 </div>
 
                 <div class="container">
-
                 </div>
 
             </div>
@@ -143,7 +146,7 @@
                             $(inner_content).css({display: '', height: ''})
                             setTimeout(function () {
                                 console.log($(inner_content).height());
-                                $(inner_content).data('actualHeight', $(inner_content).height()).css({display: 'none', height: '0px'});
+                                $(inner_content).data('actualHeight', $(inner_content).height())/*.css({display: 'none', height: '0px'})*/;
                                 $(inner_content).closest('.content').css('visibility', '');
                                 $(inner_content).prev('.big_button').removeClass('unactive');
                             }, 100);
@@ -151,18 +154,34 @@
 
                         buttonWidth = $('.content_wrapper.half').width();
                         $('.content_wrapper.half').height(buttonWidth);
+
+
+                        $('.brands').data('actualHeight', $('.brands').height())/*.css({display: 'none', height: '0px'})*/;
+                        $('.vars').data('actualHeight', $('.vars').height())/*.css({display: 'none', height: '0px'})*/;
+
+
+                        var menu = $('.items_list.brands');
+                        var classes = '.' + menu.attr('class').replace(/ /g, '.');
+                        $('.items_list_styles').html(classes + ' {height: ' + menu.data('actualHeight') + 'px; overflow: hidden; -webkit-transition: height .5s;}' + classes + '.hidden {height: 0;}');
+
+                        $('.brands').addClass('hidden');
+
+
                         $(document).on('click', '.open_brands, .open_varieties', function (e) {
                             e.preventDefault();
                             var menu = $(this).next();
+
                             if (!$(this).hasClass('unactive')) {
 
-                                if (menu.css('display') == 'none') {
-                                    menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
-                                    });
+                                if (menu.hasClass('hidden')) {
+                                    menu.removeClass('hidden');
+                                    // menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
+                                    // });
                                 } else {
-                                    menu.animate({height: '0px'}, 500, function () {
-                                        menu.css('display', 'none')
-                                    });
+                                    menu.addClass('hidden');
+                                    // menu.animate({height: '0px'}, 500, function () {
+                                    //     menu.css('display', 'none')
+                                    // });
                                 }
                             }
                         });
@@ -178,8 +197,7 @@
                             $('.scroll_block .jspContainer .jspPane').width(descBlockWidth - 5);
                             $('.desc_block').find('.scroll_block').jScrollPane();
                         });
-                        $('.brands').data('actualHeight', $('.brands').height()).css({display: 'none', height: '0px'});
-                        $('.vars').data('actualHeight', $('.vars').height()).css({display: 'none', height: '0px'});
+                        
                         // rebuildCols($('.vars'));
 
                         setTimeout(function () {
