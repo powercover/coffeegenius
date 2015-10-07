@@ -918,3 +918,7 @@ a, a:hover {
     top: 0;
     background-color: #443534;
 }
+
+.scroll_block {
+    overflow: auto;
+}

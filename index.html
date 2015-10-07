@@ -167,7 +167,7 @@
                                 }
                             }
                         });
-                        $(window).resize(function () {
+                        /*$(window).resize(function () {
                             if ($(window).width() >= 384)
                                 console.log("landscape");
                             buttonWidth = $('.content_wrapper.half').width();
@@ -178,7 +178,7 @@
                             $('.scroll_block .jspContainer').width(descBlockWidth - 5);
                             $('.scroll_block .jspContainer .jspPane').width(descBlockWidth - 5);
                             $('.desc_block').find('.scroll_block').jScrollPane();
-                        });
+                        });*/
                         $('.brands').data('actualHeight', $('.brands').height()).css({display: 'none', height: '0px'});
                         $('.vars').data('actualHeight', $('.vars').height()).css({display: 'none', height: '0px'});
                         // rebuildCols($('.vars'));
@@ -241,8 +241,8 @@
                                                 backgroundSize: img.width * multiplier + 'px',
                                                 backgroundPosition: bgPos,
                                             });
-                                            $(self).find('.desc_block .scroll_block').height(circleWidth + (circleBorderWidth * 2) - 10);
-                                            $(self).find('.desc_block .scroll_block').jScrollPane();
+                                            // $(self).find('.desc_block .scroll_block').height(circleWidth + (circleBorderWidth * 2) - 10);
+                                            // $(self).find('.desc_block .scroll_block').jScrollPane();
                                         };
                                         $('#products').removeClass('single double');
                                         switch ($('#products .list_item_wrapper').length) {
@@ -324,8 +324,8 @@
                                                     backgroundSize: img.width * multiplier + 'px',
                                                     backgroundPosition: bgPos,
                                                 });
-                                                $(self).find('.desc_block .scroll_block').height(circleWidth + (circleBorderWidth * 2) - 10);
-                                                $(self).find('.desc_block .scroll_block').jScrollPane();
+                                                // $(self).find('.desc_block .scroll_block').height(circleWidth + (circleBorderWidth * 2) - 10);
+                                                // $(self).find('.desc_block .scroll_block').jScrollPane();
                                             };
                                             $('#products').removeClass('single double');
                                             switch ($('#products .list_item_wrapper').length) {
