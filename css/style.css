@@ -152,9 +152,9 @@ a, a:hover {
     margin-top: 48px
 }
 .content_wrapper {
-/*    -webkit-transform: translate3d(0,0,0);
-    -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;*/
+    /*    -webkit-transform: translate3d(0,0,0);
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000;*/
     /*width: 100%;*/
     padding: 0px 2px;
     /*margin-bottom: 10px;*/
@@ -406,7 +406,7 @@ a, a:hover {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     padding: 7px;
-    background: url('item_image_bg.png') repeat center;
+    background: url('http://coffeegenius.org/item_image_bg.png') repeat center;
 }
 
 .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
@@ -594,7 +594,7 @@ a, a:hover {
 }
 @media (max-width: 767px) {
     #title {
-        height: 80px;
+        height: 70px;
     }
 
     #title a{
@@ -604,6 +604,7 @@ a, a:hover {
 
     #sub_title {
         font-size: 12pt !important;
+        font-weight: bold;
     }
     .icon-menu {
         /*right: 25px;*/
@@ -885,7 +886,7 @@ a, a:hover {
     background: url('../img/loading.GIF');
     width: 64px;
     height: 64px;
-    
+
 }
 
 .visible {
@@ -903,3 +904,12 @@ a, a:hover {
     margin: 0px;
 }
 
+/*ios statusbar fix*/
+
+.statusbar-back {
+    width: 100%;
+    height: 20px;
+    position: fixed;
+    top: 0;
+    background-color: #443534;
+}

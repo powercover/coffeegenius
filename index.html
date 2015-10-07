@@ -28,15 +28,11 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+        <link href="http://coffeegenius.org/assets/9c958684/css/typicons.css" rel="stylesheet">
 
         <title>Coffee Genius</title>
     </head>
-    <body style="-webkit-transform: translate3d(0,0,0);">
-        <style class="items_list_styles">
-
-        </style>
-
+    <body>
         <div class="app">
             <div class="spin-coffee visible">
                 <div class="spin-coffee-head">
@@ -56,6 +52,7 @@
                 </div>
 
                 <div class="container">
+
                 </div>
 
             </div>
@@ -67,11 +64,15 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <!--<script type="text/javascript" src="js/index1.js"></script>-->
         <script type="text/javascript">
             $(document).ready(function () {
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    $('body').append('<div class="statusbar-back"></div>')
+                    $('.app').css({marginTop: 20});
+                }
+
                 $.ajax({
-                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapindex/',
+                    url: 'http://coffeegenius.org/index.php?r=welcome/phonegapindex/',
                     success: function (data) {
 
                         setTimeout(function () {
@@ -146,7 +147,7 @@
                             $(inner_content).css({display: '', height: ''})
                             setTimeout(function () {
                                 console.log($(inner_content).height());
-                                $(inner_content).data('actualHeight', $(inner_content).height())/*.css({display: 'none', height: '0px'})*/;
+                                $(inner_content).data('actualHeight', $(inner_content).height()).css({display: 'none', height: '0px'});
                                 $(inner_content).closest('.content').css('visibility', '');
                                 $(inner_content).prev('.big_button').removeClass('unactive');
                             }, 100);
@@ -154,34 +155,15 @@
 
                         buttonWidth = $('.content_wrapper.half').width();
                         $('.content_wrapper.half').height(buttonWidth);
-
-
-                        $('.brands').css('display', 'block').data('actualHeight', $('.brands').height())/*.css({display: 'none', height: '0px'})*/;
-                        $('.vars').css('display', 'block').data('actualHeight', $('.vars').height())/*.css({display: 'none', height: '0px'})*/;
-
-
-                        var menu = $('.items_list.brands');
-                        var classes = '.' + menu.attr('class').replace(/ /g, '.');
-                        $('.items_list_styles').html(classes + ' {height: ' + menu.data('actualHeight') + 'px; overflow: hidden; -webkit-transition: height .5s;}' + classes + '.hidden {height: 0;}');
-
-                        $('.brands').addClass('hidden');
-
-
                         $(document).on('click', '.open_brands, .open_varieties', function (e) {
                             e.preventDefault();
                             var menu = $(this).next();
-
                             if (!$(this).hasClass('unactive')) {
 
-                                if (menu.hasClass('hidden')) {
-                                    menu.removeClass('hidden');
-                                    // menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
-                                    // });
+                                if (menu.css('display') == 'none') {
+                                    menu.css('display', 'block').css({height: menu.data('actualHeight') + 'px', overflow: 'hidden'});
                                 } else {
-                                    menu.addClass('hidden');
-                                    // menu.animate({height: '0px'}, 500, function () {
-                                    //     menu.css('display', 'none')
-                                    // });
+                                    menu.css({height: '0px', overflow: 'hidden', 'display': 'none'});
                                 }
                             }
                         });
@@ -197,7 +179,8 @@
                             $('.scroll_block .jspContainer .jspPane').width(descBlockWidth - 5);
                             $('.desc_block').find('.scroll_block').jScrollPane();
                         });
-                        
+                        $('.brands').data('actualHeight', $('.brands').height()).css({display: 'none', height: '0px'});
+                        $('.vars').data('actualHeight', $('.vars').height()).css({display: 'none', height: '0px'});
                         // rebuildCols($('.vars'));
 
                         setTimeout(function () {
@@ -219,7 +202,7 @@
                             //and send a request
                             $.ajax({
                                 type: "GET",
-                                url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapgetproductsbycustomsugs/',
+                                url: 'http://coffeegenius.org/index.php?r=welcome/phonegapgetproductsbycustomsugs/',
                                 data: {
                                     custom_sugs: custom_sugs
                                 },
@@ -245,7 +228,7 @@
 
 
                                         var img = new Image();
-                                        img.src = '/' + circle.data('b-image');
+                                        img.src = circle.data('b-image');
                                         console.log(img);
                                         img.onload = function () {
                                             var bgPos = circle.css('backgroundPosition').split(' ');
@@ -283,12 +266,9 @@
                             var menu = $(this).closest('.items_list');
                             menu.parent().find('.big_button span').text($(this).text());
                             if (menu.css('display') == 'none') {
-                                menu.css('display', 'block').animate({height: menu.data('actualHeight') + 'px'}, 500, function () {
-                                });
+                                menu.css('display', 'block').css({height: menu.data('actualHeight') + 'px', overflow: 'hidden'});
                             } else {
-                                menu.animate({height: '0px'}, 500, function () {
-                                    menu.css('display', 'none')
-                                });
+                                menu.css({height: '0px', overflow: 'hidden', 'display': 'none'});
                             }
 
                             //prepare data
@@ -310,7 +290,7 @@
                                 //and send a request
                                 $.ajax({
                                     type: "GET",
-                                    url: 'http://coffeegenius.dev.wonderslab.com/index.php?r=welcome/phonegapgetall/',
+                                    url: 'http://coffeegenius.org/index.php?r=welcome/phonegapgetall/',
                                     data: {
                                         brand: brand,
                                         variety: variety,
@@ -332,7 +312,7 @@
                                             descBlockWidth = $('.list_items .list_item_wrapper').width() - 167;
                                             $('.list_items .list_item_wrapper .list_item .desc_block').width(descBlockWidth);
                                             var img = new Image();
-                                            img.src = '/' + circle.data('b-image');
+                                            img.src = circle.data('b-image');
                                             img.onload = function () {
                                                 var bgPos = circle.css('backgroundPosition').split(' ');
                                                 bgPos[0] = parseInt(bgPos[0]) * multiplier - circleBorderWidth + 'px';
