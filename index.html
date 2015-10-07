@@ -25,7 +25,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta id="viewport" name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link href="http://coffeegenius.org/assets/9c958684/css/typicons.css" rel="stylesheet">
@@ -66,6 +66,10 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
+                // http://stackoverflow.com/a/21979571/2074782
+                var viewportScale = 1 / window.devicePixelRatio;
+                $("#viewport").attr("content","user-scalable=no, initial-scale=" + viewportScale + ", minimum-scale=0.2, maximum-scale=2, width=device-width");
+
                 if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                     $('body').append('<div class="statusbar-back"></div>')
                     $('.app').css({marginTop: 20});
