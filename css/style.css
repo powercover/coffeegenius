@@ -426,7 +426,7 @@ a, a:hover {
     -webkit-box-sizing: border-box;
     background-repeat: no-repeat;
     background-position: center !important;
-    background-size: cover !important;
+    /*background-size: cover !important;*/
 }
 
 .list_items .list_item_wrapper .list_item .desc_block {
