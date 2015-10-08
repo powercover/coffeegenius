@@ -582,7 +582,7 @@ a, a:hover {
     }
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px; height: 115px;
-        border-width: 4px;
+        /*border-width: 4px;*/
     }
     .list_items .list_item_wrapper .list_item .image_block {
         width: 146px;
@@ -652,7 +652,7 @@ a, a:hover {
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px !important;
         height: 115px !important;
-        border-width: 4px;
+        /*border-width: 4px;*/
     }
     .list_items .list_item_wrapper .list_item .image_block {
         width: 144px;
@@ -854,7 +854,7 @@ a, a:hover {
 
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px; height: 115px;
-        border-width: 4px;
+        /*border-width: 4px;*/
     }
 }
 .spin-coffee {
