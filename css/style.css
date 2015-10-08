@@ -425,7 +425,8 @@ a, a:hover {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center !important;
+    background-size: cover !important;
 }
 
 .list_items .list_item_wrapper .list_item .desc_block {
@@ -582,7 +583,6 @@ a, a:hover {
     }
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px; height: 115px;
-        border-width: 4px;
     }
     .list_items .list_item_wrapper .list_item .image_block {
         width: 146px;
@@ -652,7 +652,6 @@ a, a:hover {
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px !important;
         height: 115px !important;
-        border-width: 4px;
     }
     .list_items .list_item_wrapper .list_item .image_block {
         width: 144px;
@@ -854,7 +853,6 @@ a, a:hover {
 
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px; height: 115px;
-        border-width: 4px;
     }
 }
 .spin-coffee {
