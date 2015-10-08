@@ -417,7 +417,7 @@ a, a:hover {
 .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
     width: 100%; height: calc(50vw - 33px);
     /*border: 13px solid #ffffff;*/
-    border: 0px solid #ffffff;
+    border: 1em solid #ffffff;
     border-radius: 100%;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
@@ -425,8 +425,7 @@ a, a:hover {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background-repeat: no-repeat;
-    background-position: center !important;
-    /*background-size: cover !important;*/
+    background-position: center;
 }
 
 .list_items .list_item_wrapper .list_item .desc_block {
@@ -583,6 +582,7 @@ a, a:hover {
     }
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px; height: 115px;
+        border-width: 4px;
     }
     .list_items .list_item_wrapper .list_item .image_block {
         width: 146px;
@@ -652,6 +652,7 @@ a, a:hover {
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px !important;
         height: 115px !important;
+        border-width: 4px;
     }
     .list_items .list_item_wrapper .list_item .image_block {
         width: 144px;
@@ -853,6 +854,7 @@ a, a:hover {
 
     .list_items .list_item_wrapper .list_item .image_block .image_block_inner .image_circle {
         width: 115px; height: 115px;
+        border-width: 4px;
     }
 }
 .spin-coffee {
