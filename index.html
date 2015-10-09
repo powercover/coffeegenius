@@ -66,18 +66,18 @@
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript">
 			// Prefload images
-			// $.ajax({
-			// 	url: 'http://coffeegenius.org/index.php?r=welcome/phonegapproductimages/',
-			// 	dataType: 'json',
-			// 	success: function(data) {
-			// 		console.log(data);
+			$.ajax({
+				url: 'http://coffeegenius.org/index.php?r=welcome/phonegapproductimages/',
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
 
-			// 		for (var i in data) {
-			// 			var img = new Image();
-			// 			img.src = 'http://coffeegenius.org/' + data[i].img;
-			// 		}
-			// 	}
-			// })
+					for (var i in data) {
+						var img = new Image();
+						img.src = 'http://coffeegenius.org/' + data[i].img;
+					}
+				}
+			})
 
 			$(document).ready(function () {
 				if (window.devicePixelRatio != 1) {
