@@ -82,7 +82,15 @@
 			$(document).ready(function () {
 				if (window.devicePixelRatio != 1) {
 					var scale = 1 * window.devicePixelRatio;
-					$('#viewport').attr('content', 'user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=0.2')
+
+					var userScalable = 'yes';
+
+					// If ios...
+					if (navigator.userAgent.match(/iPod|iPad|iPhone/) != null) {
+						userScalable = 'no;'
+					}
+
+					$('#viewport').attr('content', 'user-scalable=' + userScalable + ', initial-scale=1, maximum-scale=3, minimum-scale=0.2')
 				}
 
 				if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
