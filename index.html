@@ -65,6 +65,20 @@
 		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript">
+			// Prefload images
+			$.ajax({
+				url: 'http://coffeegenius.org/index.php?r=welcome/phonegapproductimages/',
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
+
+					for (var i in data) {
+						var img = new Image();
+						img.src = data[i].img;
+					}
+				}
+			})
+
 			$(document).ready(function () {
 				if (window.devicePixelRatio != 1) {
 					var scale = 1 * window.devicePixelRatio;
@@ -237,7 +251,6 @@
 
 										var img = new Image();
 										img.src = circle.data('b-image');
-										console.log(img);
 										img.onload = function () {
 											var bgPos = circle.css('backgroundPosition').split(' ');
 											bgPos[0] = parseInt(bgPos[0]) * multiplier - circleBorderWidth + 'px';
@@ -315,6 +328,8 @@
 											if (window.screen.availWidth > 1024) {
 												circleBorderWidth = 4;
 											}
+
+											circleBorderWidth = 0;
 
 											circleWidth += circleBorderWidth * 2;
 											var backgroundSize = circle.data('b-size');
