@@ -7,7 +7,7 @@
     <author email="hello@wonderslab.com" href="http://wonderslab.com">
         WondersLab
     </author>
-    <content src="main.html" />
+    <content src="index.html" />
     <preference name="loadUrlTimeoutValue" value="99999999" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
